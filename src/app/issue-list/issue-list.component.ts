@@ -7,16 +7,24 @@ import { Issues } from '../issues';
   templateUrl: './issue-list.component.html',
   styleUrls: ['./issue-list.component.css']
 })
-export class IssueListComponent implements OnInit{
+export class IssueListComponent implements OnInit {
 
   issues: Issues[] = []
-  constructor(private issueService: IssuesService) { }
+  showReportIssue = false;
 
-  getIssue() {
-    this.issues = this.issueService.getPendingIssue();
-  }
+  constructor(private issueService: IssuesService) { }
 
   ngOnInit(): void {
     this.getIssue();
   }
+  
+  getIssue() {
+    this.issues = this.issueService.getPendingIssue();
+  }
+
+  onCloseReport() {
+    this.showReportIssue = false;
+    this.getIssue();
+  }
+
 }
