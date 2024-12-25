@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms'
 import { IssuesService } from '../issues.service';
 import { Issues } from '../issues';
@@ -16,10 +16,8 @@ interface IssueForm {
   styleUrls: ['./issue-report.component.css']
 })
 
-@Output() formClose = new EventEmitter();
-
-
 export class IssueReportComponent {
+  @Output() formClose = new EventEmitter();
 
 constructor(private issuesService: IssuesService) {
 
